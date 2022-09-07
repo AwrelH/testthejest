@@ -6,7 +6,8 @@
 /**
  * Import all the function to be tested
  */
-const { game, newGame, showScore, addTurn, lightsOn, showturns } = require('../game')
+const { game, newGame, showScore, addTurn, lightsOn, showTurns } = require('../game')
+
 
 beforeAll(()=> {
     let fs = require('fs');
@@ -81,7 +82,7 @@ describe('gameplay works correctly', ()=> {
         addTurn();
         expect(game.currentGame.length).toEqual(2);
     });
-    test('should add correct class to light up the buttons', ()=> {
+    test("should add correct class to light up the buttons", () => {
         let button = document.getElementById(game.currentGame[0]);
         lightsOn(game.currentGame[0]);
         expect(button.classList).toContain(game.currentGame[0] + "light");
